@@ -11,17 +11,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  font-family: Spartan,sans-serif;
   font-size: 12px;
 }
 
+.player-container{
+  height : 500px;
+  width: 400px;
+  background-color: #e7e7e7;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px 5px rgba(0,0,0,0.7);
+
+}
 
 
 .img-container {
-
+  height: 300px;
+  width: 300px;
   position: relative;
   top: -50px;
   left: 50px;
+}
+.img-container img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 5px 20px 5px rgba(0,0,0,0.7);
+  border-radius: 20px;
 }
 
 
@@ -89,7 +105,10 @@ h3 {
 
 /* Media Query: iPhone (Vertical) */
 @media screen and (max-width: 376px) {
-
+  .player-container{
+    width: 95vw;
+    
+  }
 
   .img-container {
     left: 29px;
