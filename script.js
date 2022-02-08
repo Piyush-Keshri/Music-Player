@@ -98,7 +98,7 @@ function updateProgressBar(e){
         progress.style.width = `${progressPercent}%`;
         
         // Calculate Display For duration
-        const durationMinutes = Math.floor(duration/60)+'';
+        const durationMinutes = Math.floor(duration/60);
         let durationSeconds = Math.floor(duration%60);
         if(durationSeconds<10){
             durationSeconds = `0${durationSeconds}`;
@@ -110,7 +110,7 @@ function updateProgressBar(e){
         }
 
         // Calculate Display For Current
-        const currentMinutes = Math.floor(currentTime / 60) + '';
+        const currentMinutes = Math.floor(currentTime / 60);
         let currentSeconds = Math.floor(currentTime % 60);
         if(currentSeconds < 10){
             currentSeconds = `0${currentSeconds}`;
@@ -119,7 +119,17 @@ function updateProgressBar(e){
     }
 }
 
+// Set Progress Bar
+function setProgressBar(e){
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const {duration} = music;
+    music.currentTime = (clickX/width)*duration;
+}
+
 // Event Listeners
 prevBtn.addEventListener('click',prevSong);
 nextBtn.addEventListener('click',nextSong);
+music.addEventListener('ended',nextSong);
 music.addEventListener('timeupdate',updateProgressBar);
+progressContainer.addEventListener('click',setProgressBar);
